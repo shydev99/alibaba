@@ -1,0 +1,440 @@
+/* style.css – Clean white theme with red accent */
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle background orbs for white theme */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  z-index: 0;
+  animation: float 12s ease-in-out infinite alternate;
+}
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: #b0c4de;
+  top: -80px;
+  left: -80px;
+}
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: #c0d0e0;
+  bottom: -120px;
+  right: -100px;
+  animation-duration: 16s;
+}
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: #d0e0f0;
+  top: 40%;
+  left: 60%;
+  animation-duration: 14s;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, -30px) scale(1.1); }
+}
+
+/* Login card – white glassmorphism */
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 40px;
+  padding: 2.5rem 2.2rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  animation: fadeUp 0.7s ease-out;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Brand area */
+.card-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+.brand-icon {
+  display: flex;
+  align-items: center;
+}
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+.brand-tag {
+  background: rgba(0, 0, 0, 0.05);
+  color: #6b7280;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin-left: auto;
+}
+
+/* Typography */
+.greeting {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.3rem;
+}
+.subhead {
+  color: #6b7a8f;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.2px;
+}
+.form-group label ion-icon {
+  font-size: 1.1rem;
+  color: #9ca3af;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+.input-container input {
+  width: 100%;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  transition: all 0.25s ease;
+  outline: none;
+}
+.input-container input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+.input-container input:focus {
+  border-color: #d1d5db;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(209, 213, 219, 0.15);
+}
+
+.password-container input {
+  padding-right: 52px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.password-toggle:hover {
+  color: #6b7280;
+}
+.hide {
+  display: none;
+}
+
+/* Options row */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.custom-checkbox input {
+  display: none;
+}
+.checkmark {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.custom-checkbox input:checked + .checkmark {
+  background: #374151;
+  border-color: #374151;
+}
+.custom-checkbox input:checked + .checkmark::after {
+  content: "✓";
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 700;
+}
+.custom-checkbox:hover .checkmark {
+  border-color: #9ca3af;
+}
+
+.forgot-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.forgot-link:hover {
+  gap: 10px;
+  color: #1f2937;
+}
+.forgot-link ion-icon {
+  font-size: 0.9rem;
+}
+
+/* Login button - RED theme */
+.btn-submit {
+  background: #dc2626;
+  border: 1px solid #b91c1c;
+  border-radius: 30px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.3);
+  width: 100%;
+  margin-top: 6px;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.4);
+  gap: 18px;
+  background: #b91c1c;
+}
+.btn-submit ion-icon {
+  font-size: 1.3rem;
+}
+
+/* Sign up area */
+.signup-area {
+  margin-top: 2rem;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+.divider span {
+  padding: 0 16px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn-signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 30px;
+  padding: 14px;
+  color: #374151;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+.btn-signup:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #1f2937;
+  gap: 16px;
+}
+.btn-signup ion-icon {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.card-footer {
+  margin-top: 2.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.footer-nav a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-nav a:hover {
+  color: #4b5563;
+}
+.footer-nav span {
+  color: #d1d5db;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #9ca3af;
+}
+.language-selector ion-icon {
+  font-size: 1.1rem;
+}
+.language-selector select {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 30px;
+  color: #374151;
+  padding: 6px 16px 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s;
+}
+.language-selector select:hover {
+  border-color: #d1d5db;
+}
+.language-selector select option {
+  background: #ffffff;
+  color: #374151;
+}
+
+/* Responsive adjustments */
+@media (max-width: 540px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    border-radius: 32px;
+  }
+  .greeting {
+    font-size: 1.6rem;
+  }
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-nav span {
+    display: none;
+  }
+  .brand-tag {
+    margin-left: 0;
+  }
+  .brand-logo {
+    height: 40px;
+  }
+}
